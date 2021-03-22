@@ -20,8 +20,19 @@ app.get('/sandbox', (req, res) =>{
     res.render('sandbox');
 
 });
-//create a table with two boxes name and last name. 
-//https://www.nodejsera.com/library/pug/pug-tables.html
+
+
+app.get('/hello', (req, res) =>{
+    res.render('hello');
+
+});
+
+app.post('/hello', (req, res) =>{
+    console.dir(req.body);
+    res.render('hello');
+
+});
+
 app.listen(3000, () => {
 console.log('The application is running on localhost:3000!')
 
