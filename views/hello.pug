@@ -1,8 +1,10 @@
 extends layout 
 
 block content 
-    h1 Welcome, Student!
-    form(action='/hello', method='post') 
-        label Please Enter Your Name": 
-            input(type='text', name='username')
-        button(type='submit') submit 
+    if name
+        h1 Welcome, #{name}!
+    else
+        form(action='/hello', method='post') 
+            label Please Enter Your Name: 
+                input(type='text', name='username')
+            button(type='submit') submit 
