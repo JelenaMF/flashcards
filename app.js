@@ -7,7 +7,6 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
-
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) =>{
