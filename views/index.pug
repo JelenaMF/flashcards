@@ -3,4 +3,6 @@ extends layout.pug
 block content
   section#content
     h2 Welcome, #{name}! 
-block content   
+    form(action='/goodbye' method='post')
+      button(type='submit') goodbye
+  block content   
