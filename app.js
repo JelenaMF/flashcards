@@ -9,6 +9,16 @@ app.use(cookieParser());
 
 app.set('view engine', 'pug');
 
+// app.use((req, res, next) => {
+//     console.log('one');
+//     next();
+// });
+
+// app.use((req, res, next) => {
+//     console.log('two');
+//     next();
+// });
+
 app.get('/', (req, res) =>{
     const name = req.cookies.username;
     if(name) {
@@ -44,11 +54,6 @@ app.get('/hello', (req, res) =>{
 app.post('/hello', (req, res) =>{
     res.cookie('username', req.body.username);
     res.redirect('/');
-});
-
-app.get('/goodbye', (req, res) => {
-
-
 });
 
 app.post('/goodbye', (req, res) => {
