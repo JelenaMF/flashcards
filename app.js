@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const { render } = require('pug');
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -9,15 +8,15 @@ app.use(cookieParser());
 
 app.set('view engine', 'pug');
 
-// app.use((req, res, next) => {
-//     console.log('one');
-//     next();
-// });
+app.use((req, res, next) => {
+    console.log('one');
+    next();
+});
 
-// app.use((req, res, next) => {
-//     console.log('two');
-//     next();
-// });
+app.use((req, res, next) => {
+    console.log('two');
+    next();
+});
 
 app.get('/', (req, res) =>{
     const name = req.cookies.username;
@@ -41,11 +40,9 @@ app.get('/sandbox', (req, res) =>{
 });
 
 app.get('/hello', (req, res) =>{
-    res.render('hello');
     const name = req.cookies.username;
     if(name) {
         res.redirect('/');
-
     } else {
         res.render('hello');
     }
