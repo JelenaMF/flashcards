@@ -10,16 +10,12 @@ app.use(cookieParser());
 app.set('view engine', 'pug');
 
 app.use((req, res, next) => {
-    console.log('one');
-    next();
-},
-(req, res, next) => {
-    console.log('one and a half');
+    req.message = 'This message made it!';
     next();
 });
 
 app.use((req, res, next) => {
-    console.log('two');
+    console.log(req.message);
     next();
 });
 
