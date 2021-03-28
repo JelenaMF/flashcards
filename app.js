@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -10,6 +11,10 @@ app.set('view engine', 'pug');
 
 app.use((req, res, next) => {
     console.log('one');
+    next();
+},
+(req, res, next) => {
+    console.log('one and a half');
     next();
 });
 
