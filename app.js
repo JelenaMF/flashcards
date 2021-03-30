@@ -10,13 +10,15 @@ app.set('view engine', 'pug');
 
 app.use((req, res, next) => {
     console.log('hello')
-    next();
+    const err = new Error('Oh no... Something went wrong.');
+    //err.status = 500;
+    next(err);
 });
 
 app.use((req, res, next) => {
     console.log('world');
-    //const err = new Error('Oh no... Something went wrong.');
     next();
+    
 });
 
 app.get('/', (req, res) =>{
@@ -59,6 +61,12 @@ app.post('/goodbye', (req, res) => {
     res.redirect('/hello');
     
 });
+
+app.use((err, req, res, next) => {
+    res.locals.error = err; 
+    res.status(500);
+    res.render('error', err);
+}); 
 
 app.listen(3000, () => {
 console.log('The application is running on localhost:3000!')
