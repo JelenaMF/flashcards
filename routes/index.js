@@ -9,17 +9,6 @@ router.get('/', (req, res) =>{
     } else {
         res.redirect('/hello');
     }
-
-});
-
-router.get('/cards', (req, res) =>{
-    res.render('card', {prompt: "Who is buried in Grant's tomb?", 
-        hint: "Think about who's tomb it is." });
-});
-
-//sandbox 
-router.get('/sandbox', (req, res) =>{
-    res.render('sandbox');
 });
 
 router.get('/hello', (req, res) =>{

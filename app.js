@@ -8,9 +8,11 @@ app.use(cookieParser());
 
 app.set('view engine', 'pug');
 
-const routes = require('./routes');
+const mainRoutes = require('./routes');
+const cardRoutes = require('./routes/cards');
 
-app.use(routes);
+app.use(mainRoutes);
+app.use('/cards', cardRoutes);
 
 app.use((req, res, next) => {
     console.log('hello')
