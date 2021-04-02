@@ -15,14 +15,14 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) =>{
     const {side} = req.query;
     const {id} = req.params;
- //if input is not the side redirect to the card question    
-    if(!side){
+ //if URL is side question/answer redirect to question side   
+    if(side !== 'answer' && side !== 'question'){
         res.redirect(`/cards/${id}?side=question`);
     }
-
+    const name = req.cookies.username;
     const text = cards[id][side];
     const {hint} = cards[id];
-    const templateData = {id, text};
+    const templateData = {id, text, name};
 /*when the question side of the card is displayed the hint and answer link is displayed */
     if(side === 'question') {
         templateData.hint = hint;
