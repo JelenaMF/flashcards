@@ -172,6 +172,7 @@ input {
   min-height: 425px;
   box-sizing: border-box;
   margin: auto;
+  margin-top: 50px;
   padding-bottom: 30px;
   color: #727C85;
   text-align: center;

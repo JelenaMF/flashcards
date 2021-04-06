@@ -5,11 +5,5 @@ html(lang="en")
         link(rel='stylesheet', href='/static/stylesheets/styles.css')
     body
         include includes/header.pug
-        if name
-            h2 Welcome, #{name}! 
-            // creates a goodbye button on the home page 
-            form(action='/goodbye' method='post')
-                button(type='submit') goodbye
-        block content
-        include includes/footer.pug
+        block main
     
