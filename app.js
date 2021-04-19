@@ -39,7 +39,7 @@ app.use((err, req, res, next) => {
     res.render('error');
 }); 
 
-app.listen(3000, () => {
+app.listen('https://jelenamf.github.io/', () => {
 console.log('The application is running on localhost:3000!')
 
 });
