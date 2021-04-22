@@ -17,17 +17,6 @@ app.use(mainRoutes);
 app.use('/cards', cardRoutes);
 
 app.use((req, res, next) => {
-    const err = new Error('Oh no... Something went wrong.');
-    next();
-});
-
-app.use((req, res, next) => {
-   
-    next();
-    
-});
-
-app.use((req, res, next) => {
     const err = new Error('Not Found');
     err.status = 404;
     next(err);
@@ -39,7 +28,7 @@ app.use((err, req, res, next) => {
     res.render('error');
 }); 
 
-app.listen('https://jelenamf.github.io/', () => {
+app.listen(3000, () => {
 console.log('The application is running on localhost:3000!')
 
 });
